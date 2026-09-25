@@ -14,7 +14,7 @@ Then open `http://localhost:8080`.
 
 - `postmortems/` contains one HTML build record per Ops project.
 - `experiments/` contains bounded test-bench investigations.
-- `content/n8n-from-story-to-automation.md` is the canonical Field Guide source.
+- `content/n8n-where-ideas-find-their-flow-study-guide.md` is the canonical Field Guide source.
 - `field-guide/index.html` is generated presentation HTML. Rebuild it after source edits with `pwsh ./scripts/build-field-guide.ps1`.
 - `assets/css/styles.css` provides the shared design system.
 - `assets/js/main.js` provides navigation, chapter tracking and reading progress.
