@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DeTLeng n8n Lab — The Thinking Behind the Workflow</title>
+  <meta name="description" content="A transparent engineering lab for the prompts, experiments, failures and decisions behind DeTLeng automation systems.">
+  <link rel="canonical" href="https://n8nlab.detleng.com/">
+  <meta property="og:type" content="website"><meta property="og:title" content="DeTLeng n8n Lab"><meta property="og:description" content="The thinking behind the finished workflow."><meta property="og:url" content="https://n8nlab.detleng.com/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23fbfaf5'/%3E%3Ccircle cx='23' cy='32' r='8' fill='none' stroke='%230d6b4c' stroke-width='5'/%3E%3Ccircle cx='42' cy='32' r='8' fill='none' stroke='%23d98a24' stroke-width='5'/%3E%3Cpath d='M31 32h3' stroke='%23083f31' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner">
+  <a class="brand" href="./"><span class="brand-mark"><i></i><i></i></span><span class="brand-copy"><span class="brand-name">DeTLeng <em>n8n Lab</em></span><span class="brand-tag">Build / Explain</span></span></a>
+  <nav class="main-nav" aria-label="Primary"><ul><li><a aria-current="page" href="./">Home</a></li><li><a href="postmortems/">Postmortems</a></li><li><a href="experiments/">Experiments</a></li><li><a href="field-guide/">Field Guide</a></li><li><a href="about/">About</a></li></ul></nav>
+  <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+</div></header>
+<main id="main">
+  <section class="hero"><div class="wrap hero-grid"><div>
+    <p class="eyebrow">The workshop behind DeTLeng Ops</p><h1>The thinking behind the <em>workflow.</em></h1>
+    <p class="lead">Finished automation systems live in Ops. Here, the prompts, design decisions, failed assumptions and lessons stay visible.</p>
+    <div class="actions"><a class="btn btn-primary" href="postmortems/">Explore postmortems</a><a class="btn btn-secondary" href="field-guide/">Read the Field Guide</a></div>
+  </div><div class="lab-map" aria-label="Workflow from problem to revision">
+    <p class="map-note">“A clean workflow rarely begins as a clean idea.”</p><div class="map-flow">
+      <div class="map-step"><span class="map-num">01</span><b>Understand</b><small>the actual problem</small></div><div class="map-connector"></div>
+      <div class="map-step"><span class="map-num">02</span><b>Design</b><small>the first hypothesis</small></div><div class="map-connector"></div>
+      <div class="map-step"><span class="map-num">03</span><b>Test</b><small>where reality disagrees</small></div><div class="map-connector"></div>
+      <div class="map-step"><span class="map-num">04</span><b>Revise</b><small>with evidence</small></div>
+    </div>
+  </div></div></section>
+  <section class="section section-wash"><div class="wrap"><div class="section-head"><p class="section-label">Inside the lab</p><h2>Engineering evidence, not failure theatre.</h2><p>The Lab follows a system from the original business question to the current architecture. It records what changed and why—without pretending an unfinished build is production-ready.</p></div>
+  <div class="feature-grid">
+    <article class="feature-card"><span class="index">01 / BUILD RECORD</span><h3>Project Postmortems</h3><p>Problem framing, prompts, workflow hypotheses, failures, diagnosis, revisions and production concerns—all connected to the corresponding Ops project.</p><a href="postmortems/">Open the build records →</a></article>
+    <article class="feature-card"><span class="index">02 / FLAGSHIP GUIDE</span><h3>n8n From Story to Automation</h3><p>A human-centred field guide that teaches technical roles through memorable analogies, then returns to professional meaning.</p><a href="field-guide/">Start reading →</a></article>
+    <article class="feature-card"><span class="index">03 / ITERATION</span><h3>Prompt Engineering</h3><p>Not a prompt gallery: a record of how language changes understanding, output constraints and implementation.</p><a href="postmortems/lead-automation-engine.html#prompt-engineering">See the structure →</a></article>
+    <article class="feature-card"><span class="index">04 / TEST BENCH</span><h3>Experiments</h3><p>Small, bounded investigations with a question, method, observation and next step.</p><a href="experiments/">Visit the test bench →</a></article>
+  </div></div></section>
+  <section class="section"><div class="wrap"><div class="section-head"><p class="section-label">Current build records</p><h2>Connected to Ops. Honest about status.</h2><p>The source Ops portfolio currently labels these concepts as planned. Lab pages therefore provide reusable postmortem structure—not invented build evidence.</p></div>
+  <div class="project-grid">
+    <article class="project-card"><div class="project-top"><h3>Lead Automation Engine</h3><span class="status">Structure ready</span></div><p>Postmortem shell for the planned intake, validation, enrichment and scoring workflow.</p><div class="trace"><span>Webhook</span><i>→</i><span>Validate</span><i>→</i><span>Score</span><i>→</i><span>Notify</span></div><footer><a class="text-link" href="postmortems/lead-automation-engine.html">View postmortem structure →</a></footer></article>
+    <article class="project-card"><div class="project-top"><h3>More Ops projects</h3><span class="status">Coming as built</span></div><p>AI Customer Support Desk, RAG Knowledge Assistant, Document &amp; Invoice Automation, Multi-Agent Operations and KPI Automation will receive records when real implementation evidence exists.</p><footer><a class="text-link" href="postmortems/">See the complete index →</a></footer></article>
+  </div></div></section>
+  <section class="section section-dark"><div class="wrap"><div class="section-head"><p class="section-label">The Automation &amp; n8n Studio</p><h2>One craft. Four different doors.</h2><p>Choose the door that matches what you need now. LFDS remains the broader public front door.</p></div><div class="doors">
+    <a class="door" href="https://n8n.detleng.com/"><strong>LEARN</strong><h3>n8n Learning</h3><p>Structured lessons and hands-on learning.</p></a><a class="door" href="./"><strong>BUILD / EXPLAIN</strong><h3>n8n Lab</h3><p>Postmortems, prompts, experiments and lessons.</p></a><a class="door" href="https://ops.detleng.com/"><strong>SHOW</strong><h3>DeTLeng Ops</h3><p>Polished automation systems and architecture.</p></a><a class="door" href="https://automation.detleng.com/"><strong>START</strong><h3>Automation Desk</h3><p>Bring a manual process and discuss improving it.</p></a>
+  </div></div></section>
+</main>
+<footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><div class="brand-name">DeTLeng <em>n8n Lab</em></div><p>The transparent build and explanation layer of the DeTLeng automation ecosystem.</p><p>Built by Muhammad Naveed Ishaque.</p></div><div><h3>Explore</h3><a href="postmortems/">Postmortems</a><a href="experiments/">Experiments</a><a href="field-guide/">Field Guide</a></div><div><h3>Ecosystem</h3><a href="https://ops.detleng.com/">DeTLeng Ops</a><a href="https://lfds.detleng.com/">LFDS</a><a href="https://automation.detleng.com/">Discuss an automation</a></div></div><div class="footer-legal">Independent learning and engineering project. Not affiliated with, endorsed by, or representing n8n GmbH.</div></div></footer>
+<script src="assets/js/main.js"></script></body></html>
