@@ -20,6 +20,7 @@
   --radius: 20px;
   --shadow: 0 18px 55px rgba(16, 37, 30, .09);
 }
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 body { margin: 0; color: var(--ink); background: var(--paper); font: 400 17px/1.72 var(--body); -webkit-font-smoothing: antialiased; }
@@ -214,4 +215,86 @@ p { margin: 0 0 1.2em; }
   .guide-article .workflow-visual { margin-inline: 0; padding: 22px 20px; font-size: .82rem; }
   .guide-article .optional-section { padding: 24px 20px; }
   .guide-article table { display: block; overflow-x: auto; white-space: nowrap; }
+}
+
+/* Field Guide learning hierarchy */
+.guide-shell { width: min(1460px, calc(100% - 40px)); grid-template-columns: 240px minmax(0, 860px) 160px; gap: clamp(34px, 4vw, 64px); padding-block: 64px 120px; }
+.guide-nav { padding: 20px 14px 20px 0; scrollbar-width: thin; scrollbar-color: #9bb7a9 transparent; }
+.guide-nav strong { margin-bottom: 15px; color: var(--ink); font-size: .8rem; }
+.guide-nav-hint { margin: -5px 0 20px; font-size: .78rem; line-height: 1.55; }
+.guide-nav a { margin: 2px 0; padding: 9px 12px; color: #50675e; border-radius: 0 7px 7px 0; font-size: .81rem; line-height: 1.42; transition: color .18s ease, border-color .18s ease, background-color .18s ease; }
+.guide-nav a:hover { color: var(--green-dark); border-color: #88ad9a; background: #f1f7f3; }
+.guide-nav a.active { color: var(--green-dark); border-color: var(--green); background: #dff3e8; font-weight: 750; }
+.guide-article > h1 { position: relative; margin: 116px 0 32px; padding-top: 34px; border-top: 2px solid #a9c4b6; font-size: clamp(2.6rem, 4.2vw, 4.15rem); }
+.guide-article > h1:first-child { margin-top: 0; padding-top: 0; border: 0; }
+.guide-article > h1::before { content: "JOURNEY " attr(data-guide-section); display: block; margin-bottom: 15px; color: var(--green); font: 850 .72rem var(--body); letter-spacing: .14em; }
+.guide-article > h2 { position: relative; margin: 92px 0 30px; padding: 28px 0 0 28px; border-top: 1px solid var(--line); font-size: clamp(2rem, 3vw, 2.8rem); }
+.guide-article > h2::before { content: ""; position: absolute; top: 31px; left: 0; width: 10px; height: 10px; border: 3px solid var(--amber); border-radius: 50%; background: var(--paper); }
+.guide-article h3 { margin: 0; }
+.guide-article p, .guide-article li { color: #263e35; font-size: 1.04rem; line-height: 1.78; }
+.guide-article p { margin-bottom: 1.35em; }
+.learning-block { position: relative; margin: 34px 0; }
+.learning-block .guide-label { display: flex; gap: 13px; align-items: center; margin: 0 0 16px; color: var(--green); font: 800 clamp(.98rem, 1.15vw, 1.08rem)/1.35 var(--body); letter-spacing: .035em; text-transform: none; }
+.learning-block .guide-label::before { content: ""; flex: 0 0 32px; width: auto; height: 3px; background: currentColor; border-radius: 4px; }
+.learning-block > :last-child { margin-bottom: 0; }
+.learning-block--human-scene { margin: 38px 0 42px; padding: 30px 34px 20px; border: 1px solid #ead7b5; border-radius: 16px; background: linear-gradient(135deg, #fff8ea, #fdf3df); }
+.learning-block--human-scene .guide-label { color: #7a5521; }
+.learning-block--human-scene p { font-family: var(--display); font-size: 1.2rem; line-height: 1.68; }
+.learning-block--human-meaning { padding-left: 24px; border-left: 4px solid var(--green); }
+.learning-block--human-meaning .guide-label { color: var(--green); }
+.learning-block--professional-meaning { padding: 25px 28px 13px; border: 1px solid #bfd8e3; border-left: 5px solid var(--blue); border-radius: 12px; background: #f3f9fb; }
+.learning-block--professional-meaning .guide-label { color: var(--blue); }
+.learning-block--why-it-matters { padding: 24px 28px 12px; border-radius: 12px; background: #eef7f1; }
+.learning-block--why-it-matters .guide-label { color: #146747; }
+.learning-block--tiny-workflow .guide-label { color: var(--green-dark); }
+.learning-block--smile { padding: 2px 0 2px 24px; border-left: 2px solid #d9b777; }
+.learning-block--smile .guide-label { color: #75572b; }
+.learning-block--smile p { color: #4d4639; font-style: italic; }
+.learning-block--warning { padding: 24px 28px 12px; border: 1px solid #e5bd7a; border-radius: 12px; background: var(--amber-wash); }
+.learning-block--warning .guide-label { padding: 0; color: #85500b; border: 0; background: transparent; }
+.learning-block--warning .guide-label::before { flex-basis: 10px; width: 10px; height: 10px; border-radius: 50%; }
+.learning-block--memory-hook { margin: 42px 0 62px; padding: 27px 32px; border: 1px solid #a7c9b6; border-left: 6px solid var(--green); border-radius: 12px; background: var(--mint); }
+.learning-block--memory-hook .guide-label { color: var(--green-dark); }
+.learning-block--memory-hook p { padding: 0; color: var(--green-dark); border: 0; background: transparent; font-family: var(--display); font-size: clamp(1.28rem, 2vw, 1.55rem); font-weight: 600; line-height: 1.5; }
+.learning-block--whisper { margin: 70px 0; padding: 34px 40px; border-block: 1px solid #a9c4b6; text-align: center; }
+.learning-block--whisper .guide-label { justify-content: center; color: var(--muted); font-size: .92rem; letter-spacing: .08em; text-transform: uppercase; }
+.learning-block--whisper .guide-label::before { display: none; }
+.learning-block--whisper blockquote, .learning-block--whisper p { margin: 0; padding: 0; color: var(--green-dark); border: 0; background: transparent; font-family: var(--display); font-size: clamp(1.35rem, 2.4vw, 1.8rem); line-height: 1.55; font-style: italic; }
+.editorial-whisper { margin: 70px 0; padding: 34px 40px; color: var(--green-dark); border: 0; border-block: 1px solid #a9c4b6; background: transparent; text-align: center; font-family: var(--display); font-size: clamp(1.35rem, 2.4vw, 1.8rem); line-height: 1.55; font-style: italic; }
+.editorial-whisper strong { display: block; margin-bottom: 12px; color: var(--muted); font: 800 .92rem var(--body); letter-spacing: .08em; text-transform: uppercase; }
+.guide-article .workflow-visual--nodes { padding: 24px; }
+.workflow-track { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.workflow-node { padding: 10px 13px; color: var(--green-dark); border: 1px solid #a9c9b7; border-radius: 8px; background: white; font: 750 .78rem/1.35 var(--body); box-shadow: 0 4px 12px rgba(16,37,30,.05); transition: transform .18s ease, border-color .18s ease; }
+.workflow-node:hover { transform: translateY(-2px); border-color: var(--green); }
+.workflow-arrow { color: var(--green); font-weight: 850; }
+.guide-progress { padding: 18px 16px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.65); }
+.guide-progress span { font-size: .72rem; font-weight: 800; line-height: 1.5; }
+.progress-track { width: 5px; height: 130px; overflow: hidden; background: #dce8e1; border-radius: 10px; }
+
+@media (max-width: 1100px) {
+  .guide-shell { grid-template-columns: 220px minmax(0, 1fr); }
+}
+@media (max-width: 820px) {
+  .guide-shell { grid-template-columns: 1fr; }
+  .guide-nav { padding: 18px; }
+  .guide-nav-hint { margin-bottom: 10px; }
+}
+@media (max-width: 600px) {
+  .guide-article > h1 { margin-top: 86px; }
+  .guide-article > h2 { margin-top: 70px; padding-left: 24px; }
+  .learning-block { margin-block: 28px; }
+  .learning-block .guide-label { font-size: 1rem; }
+  .learning-block--human-scene, .learning-block--professional-meaning, .learning-block--why-it-matters, .learning-block--warning, .learning-block--memory-hook { padding: 22px 20px 12px; }
+  .learning-block--human-scene p { font-size: 1.08rem; }
+  .learning-block--human-meaning { padding-left: 18px; }
+  .learning-block--memory-hook { margin-bottom: 48px; padding-bottom: 22px; }
+  .learning-block--whisper { margin: 50px 0; padding: 28px 12px; }
+  .editorial-whisper { margin: 50px 0; padding: 28px 12px; }
+  .workflow-track { align-items: stretch; flex-direction: column; }
+  .workflow-node { width: 100%; text-align: center; }
+  .workflow-arrow { align-self: center; transform: rotate(90deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }

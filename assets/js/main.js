@@ -44,7 +44,26 @@
     };
     article.querySelectorAll('h3').forEach(heading => {
       const key = heading.textContent.trim().toLowerCase();
-      if (labelKinds[key]) heading.classList.add('guide-label', `guide-label--${labelKinds[key]}`);
+      const kind = labelKinds[key];
+      if (!kind) return;
+      heading.classList.add('guide-label', `guide-label--${kind}`);
+
+      const block = document.createElement('section');
+      block.className = `learning-block learning-block--${kind}`;
+      block.setAttribute('aria-labelledby', heading.id);
+      heading.before(block);
+      block.appendChild(heading);
+      while (block.nextSibling && !/^H[1-3]$/.test(block.nextSibling.nodeName)) {
+        block.appendChild(block.nextSibling);
+      }
+    });
+
+    article.querySelectorAll('blockquote').forEach(quote => {
+      if (!/^n8n whisper/i.test(quote.textContent.trim())) return;
+
+      quote.classList.add('editorial-whisper');
+      const learningBlock = quote.closest('.learning-block');
+      if (learningBlock) learningBlock.after(quote);
     });
 
     article.querySelectorAll('pre').forEach(pre => {
@@ -54,6 +73,29 @@
       if (!isWorkflow) return;
       pre.classList.add('workflow-visual');
       pre.setAttribute('aria-label', `Workflow example: ${code.replace(/\s+/g, ' ')}`);
+
+      const isSimpleFlow = lines.length <= 11 && lines.every(line => !/[├└┐┘│]/.test(line) && (line === '→' || !line.includes('→') || line.startsWith('→ ')));
+      if (isSimpleFlow) {
+        const flow = document.createElement('span');
+        flow.className = 'workflow-track';
+        lines.forEach((line, index) => {
+          const label = line.replace(/^→\s*/, '');
+          if (index > 0 && line !== '→') {
+            const arrow = document.createElement('span');
+            arrow.className = 'workflow-arrow';
+            arrow.setAttribute('aria-hidden', 'true');
+            arrow.textContent = '→';
+            flow.appendChild(arrow);
+          }
+          const item = document.createElement('span');
+          item.className = line === '→' ? 'workflow-arrow' : 'workflow-node';
+          item.textContent = line === '→' ? line : label;
+          flow.appendChild(item);
+        });
+        pre.textContent = '';
+        pre.appendChild(flow);
+        pre.classList.add('workflow-visual--nodes');
+      }
     });
 
     const ragHeading = headings.find(heading => heading.textContent.includes('Optional Extension'));
